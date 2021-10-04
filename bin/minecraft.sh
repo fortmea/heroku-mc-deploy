@@ -41,7 +41,7 @@ start_tunnel &
 ngrok_pid=$!
 
 # downloads the world
-node init.js
+node --trace-uncaught init.js
 
 # create server config
 if [ ! -f server.properties ]; then
@@ -62,14 +62,14 @@ java_pid=$!
 trap "graceful_shutdown $java_pid $ngrok_pid" SIGTERM
 
 # start syncing
-node sync_world.js &
+node --trace-uncaught sync_world.js &
 
 # start listening on $PORT
-node index.js &
+node --trace-uncaught index.js &
 
 # curl the server every 25 min so it doesn't sleep
 while true
 do
-	curl --silent 'http://cs-mc-server.herokuapp.com/' &> /dev/null
+	curl --silent 'http://obscure-temple-91656.herokuapp.com/' &> /dev/null
 	sleep 1500
 done
