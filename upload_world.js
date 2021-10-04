@@ -4,7 +4,7 @@ archiver = require('archiver');
 
 // MAIN
 function uploadWorld() {
-	output = getUploadStream('world.zip');
+	output = getUploadStream('/world.zip');
 	archive = archiver('zip');
 	archive.on('error', err => {throw err;});
 	archive.pipe(output);
