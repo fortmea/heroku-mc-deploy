@@ -52,7 +52,7 @@ touch banned-players.json
 touch banned-ips.json
 touch ops.json
 
-heap=${HEAP:-"1024M"}
+heap=${HEAP:-"512M"}
 
 echo "Starting: minecraft ${mc_port}"
 java -Xmx${heap} -Xms${heap} -Xss512k -XX:+UseCompressedOops -jar server.jar nogui &
