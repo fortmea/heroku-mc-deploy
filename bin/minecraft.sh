@@ -48,7 +48,6 @@ if [ ! -f server.properties ]; then
   echo "server-port=${mc_port}" >> server.properties
 fi
 touch whitelist.json
-touch banned-players.json
 touch banned-ips.json
 touch ops.json
 
